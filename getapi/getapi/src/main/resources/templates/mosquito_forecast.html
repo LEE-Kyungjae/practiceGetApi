@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosquito Forecast</title>
+</head>
+<body>
+<h1>Mosquito Forecast</h1>
+<div th:if="${mosquitoForecast != null and not #lists.isEmpty(mosquitoForecast.rows)}">
+    <div th:each="row : ${mosquitoForecast.rows}">
+        <p>Mosquito Date: <span th:text="${row.mosquitoDate}">-</span></p>
+        <p>Water Value: <span th:text="${row.mosquitoValueWater}">-</span></p>
+        <p>House Value: <span th:text="${row.mosquitoValueHouse}">-</span></p>
+        <p>Park Value: <span th:text="${row.mosquitoValuePark}">-</span></p>
+    </div>
+</div>
+
+<div th:if="${mosquitoForecast == null or #lists.isEmpty(mosquitoForecast.rows)}">
+    <p>No data available</p>
+</div>
+</body>
+</html>

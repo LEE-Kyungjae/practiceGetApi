@@ -1,6 +1,6 @@
 package com.lkj.getapi.mosquito;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +8,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Result {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String code;
     private String message;
+
+
+    @OneToOne(mappedBy = "result")
+    private MosquitoStatusResponse mosquitoStatusResponse;
 }

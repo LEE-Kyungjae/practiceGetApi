@@ -1,4 +1,4 @@
-package com.lkj.getapi.mosquito;
+package com.lkj.getapi.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
